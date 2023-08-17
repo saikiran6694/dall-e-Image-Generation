@@ -15,12 +15,14 @@ const CreatePost = () => {
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const base_url = "https://image-gen-sl0e.onrender.com"
+
   const generateImage = async () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
         const response = await fetch(
-          `https://dall-e-c7rw.onrender.com/api/v1/dalle`,
+          `${base_url}/api/v1/dalle`,
           {
             method: "POST",
             headers: {
@@ -49,7 +51,7 @@ const CreatePost = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://dall-e-c7rw.onrender.com/api/v1/post`,
+          `${base_url}/api/v1/post`,
           {
             method: "POST",
             headers: {
